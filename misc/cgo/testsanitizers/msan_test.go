@@ -24,7 +24,9 @@ func TestMSAN(t *testing.T) {
 	}
 
 	t.Parallel()
-	requireOvercommit(t)
+	if goos == "linux" {
+		requireOvercommit(t)
+	}
 	config := configure("memory")
 	config.skipIfCSanitizerBroken(t)
 
