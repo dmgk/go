@@ -32,7 +32,9 @@ func TestASAN(t *testing.T) {
 	}
 
 	t.Parallel()
-	requireOvercommit(t)
+	if goos == "linux" {
+		requireOvercommit(t)
+	}
 	config := configure("address")
 	config.skipIfCSanitizerBroken(t)
 

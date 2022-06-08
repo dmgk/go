@@ -824,7 +824,7 @@ func (t *tester) registerTests() {
 		if t.supportedBuildmode("plugin") {
 			t.registerTest("testplugin", "../misc/cgo/testplugin", t.goTest(), t.timeout(600), ".")
 		}
-		if gohostos == "linux" && goarch == "amd64" {
+		if (gohostos == "linux" || gohostos == "freebsd") && goarch == "amd64" {
 			t.registerTest("testasan", "../misc/cgo/testasan", "go", "run", ".")
 		}
 		if goos == "linux" && goarch != "ppc64le" {

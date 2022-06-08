@@ -122,9 +122,8 @@
 //		On linux/arm64, pie build mode will be used.
 //	-asan
 //		enable interoperation with address sanitizer.
-//		Supported only on linux/arm64, linux/amd64.
-//		Supported only on linux/amd64 or linux/arm64 and only with GCC 7 and higher
-//		or Clang/LLVM 9 and higher.
+//		Supported only on linux/arm64, linux/amd64, freebsd/amd64
+//		and only with GCC 7 and higher or Clang/LLVM 9 and higher.
 //	-v
 //		print the names of packages as they are compiled.
 //	-work
