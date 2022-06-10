@@ -154,23 +154,23 @@ type siginfo struct {
 }
 
 type gpregs struct {
-	gp_ra uint64
-	gp_sp uint64
-	gp_gp uint64
-	gp_tp uint64
-	gp_t [7]uint64
-	gp_s [12]uint64
-	gp_a [8]uint64
-	gp_sepc uint64
+	gp_ra      uint64
+	gp_sp      uint64
+	gp_gp      uint64
+	gp_tp      uint64
+	gp_t       [7]uint64
+	gp_s       [12]uint64
+	gp_a       [8]uint64
+	gp_sepc    uint64
 	gp_sstatus uint64
-};
+}
 
 type fpregs struct {
-	fp_x [64]uint64 // actually __uint64_t fp_x[32][2]
-	fp_fcsr uint64
+	fp_x     [64]uint64 // actually __uint64_t fp_x[32][2]
+	fp_fcsr  uint64
 	fp_flags int32
-	pad int32
-};
+	pad      int32
+}
 
 type mcontext struct {
 	mc_gpregs gpregs
@@ -228,6 +228,7 @@ type keventt struct {
 	fflags uint32
 	data   int64
 	udata  *byte
+	ext    [4]uint64
 }
 
 type bintime struct {
