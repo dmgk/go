@@ -107,7 +107,7 @@ TEXT ·Syscall9(SB),NOSPLIT,$0-104
 	MOV	a4+32(FP), A3
 	MOV	a5+40(FP), A4
 	MOV	a6+48(FP), A5
-	MOV	a7+48(FP), A6
+	MOV	a7+56(FP), A6
 	MOV	trap+0(FP), T0	// syscall entry
 	ECALL
 	BNE	T0, ZERO, err

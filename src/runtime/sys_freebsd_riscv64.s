@@ -154,7 +154,7 @@ TEXT runtime·write1(SB),NOSPLIT|NOFRAME,$0-28
 	BEQ	T0, ZERO, ok
 	NEG	A0, A0
 ok:
-	MOVW	A0, errno+24(FP)
+	MOVW	A0, ret+24(FP)
 	RET
 
 // func read(fd int32, p unsafe.Pointer, n int32) int32
@@ -167,7 +167,7 @@ TEXT runtime·read(SB),NOSPLIT|NOFRAME,$0-28
 	BEQ	T0, ZERO, ok
 	NEG	A0, A0
 ok:
-	MOVW	A0, errno+24(FP)
+	MOVW	A0, ret+24(FP)
 	RET
 
 // func usleep(usec uint32)
