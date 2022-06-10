@@ -108,17 +108,18 @@ TEXT ·Syscall9(SB),NOSPLIT,$0-104
 	MOV	a5+40(FP), A4
 	MOV	a6+48(FP), A5
 	MOV	a7+56(FP), A6
-	MOV	trap+0(FP), T0	// syscall entry
+	MOV	num+0(FP), T0	// syscall entry
 	ECALL
 	BNE	T0, ZERO, err
-	MOV	A0, r1+56(FP)	// r1
-	MOV	A1, r2+64(FP)	// r2
-	MOV	ZERO, err+72(FP)	// errno
+	MOV	A0, r1+80(FP)	// r1
+	MOV	A1, r2+88(FP)	// r2
+	MOV	ZERO, err+96(FP)	// errno
+	CALL	runtime·exitsyscall(SB)
 	RET
 err:
 	MOV	$-1, T0
-	MOV	T0, r1+56(FP)	// r1
-	MOV	ZERO, r2+64(FP)	// r2
-	MOV	A0, err+72(FP)	// errno
+	MOV	T0, r1+80(FP)	// r1
+	MOV	ZERO, r2+88(FP)	// r2
+	MOV	A0, err+96(FP)	// errno
 	CALL	runtime·exitsyscall(SB)
 	RET
