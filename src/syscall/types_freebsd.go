@@ -17,7 +17,6 @@ package syscall
 #define	_WANT_FREEBSD11_STAT	1
 #define	_WANT_FREEBSD11_STATFS	1
 #define	_WANT_FREEBSD11_DIRENT	1
-#define	_WANT_FREEBSD11_KEVENT	1
 
 #include <dirent.h>
 #include <fcntl.h>
@@ -255,7 +254,7 @@ const (
 
 // Events (kqueue, kevent)
 
-type Kevent_t C.struct_kevent_freebsd11
+type Kevent_t C.struct_kevent
 
 // Select
 
