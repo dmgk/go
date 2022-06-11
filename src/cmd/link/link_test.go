@@ -177,7 +177,7 @@ func TestIssue33979(t *testing.T) {
 	switch runtime.GOARCH {
 	case "loong64":
 		t.Skipf("Skipping on %s/%s", runtime.GOOS, runtime.GOARCH)
-	case "mips", "mipsle", "mips64", "mips64le":
+	case "mips", "mipsle", "mips64", "mips64le", "riscv64":
 		t.Skipf("Skipping on %s/%s", runtime.GOOS, runtime.GOARCH)
 	}
 	if runtime.GOOS == "aix" ||
